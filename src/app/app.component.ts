@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PhotogrametryResult } from './photogrametry-result';
+import { PhotogrametryResultService } from './photogrametry-result.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'magnesie-result-front';
+
+  constructor(private photogrametryResultService: PhotogrametryResultService) {}
+
+  title:string = "Photogrametry result viewer";
+  results:PhotogrametryResult[];
+
+  ngOnInit() {
+    this.getResults();
+  }
+
+  getResults() {
+    this.results = this.photogrametryResultService.getResults();
+  }
 }
