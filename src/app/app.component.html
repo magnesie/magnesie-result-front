@@ -1,7 +1,7 @@
 <h1>{{ title }}</h1>
 
 <div *ngFor="let result of results">
-    <p matLine>{{ result.id }}</p>
+    <p matLine>id: {{ result.id }}</p>
     <a>view</a>
     <app-model-viewer [model]="result"></app-model-viewer>
 </div>

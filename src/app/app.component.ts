@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { PhotogrametryResult } from './photogrametry-result';
 import { PhotogrametryResultService } from './photogrametry-result.service';
 
@@ -9,16 +10,19 @@ import { PhotogrametryResultService } from './photogrametry-result.service';
 })
 export class AppComponent {
 
-  constructor(private photogrametryResultService: PhotogrametryResultService) {}
+  constructor(private photogrametryResultService: PhotogrametryResultService) { }
 
-  title:string = "Photogrametry result viewer";
-  results:PhotogrametryResult[];
+  title: string = "Photogrametry result viewer";
+  results: PhotogrametryResult[];
 
   ngOnInit() {
     this.getResults();
   }
 
   getResults() {
-    this.results = this.photogrametryResultService.getResults();
+    this.photogrametryResultService.getResults().subscribe({
+      next: value => this.results = value,
+      error: err => console.error(err),
+    })
   }
 }

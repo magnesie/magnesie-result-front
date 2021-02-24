@@ -29,10 +29,6 @@ export class ModelViewerComponent implements AfterViewInit {
     this.scene = scene;
     scene.background = new THREE.Color( 0xffffff );
     scene.fog = new THREE.Fog( 0xa0a0a0, 10, 50 );
-    
-    var hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
-		hemiLight.position.set( 0, 20, 0 );
-		//scene.add( hemiLight );
 
     var dirLight = new THREE.DirectionalLight( 0xffffff );
     dirLight.position.set( 10, 10, 10 );
@@ -107,16 +103,31 @@ export class ModelViewerComponent implements AfterViewInit {
   }
 
   rotationXinc(){
-    this.mesh.rotation.x -= Math.PI/20 ;
+    this.mesh.rotation.x += Math.PI/20 ;
     this.renderer.render( this.scene, this.camera );
   }
 
   rotationYinc(){
-    this.mesh.rotation.y -= Math.PI/20 ;
+    this.mesh.rotation.y += Math.PI/20 ;
     this.renderer.render( this.scene, this.camera );
   }
 
   rotationZinc(){
+    this.mesh.rotation.z += Math.PI/20;
+    this.renderer.render( this.scene, this.camera );
+  }
+
+  rotationXdec(){
+    this.mesh.rotation.x -= Math.PI/20 ;
+    this.renderer.render( this.scene, this.camera );
+  }
+
+  rotationYdec(){
+    this.mesh.rotation.y -= Math.PI/20 ;
+    this.renderer.render( this.scene, this.camera );
+  }
+
+  rotationZdec(){
     this.mesh.rotation.z -= Math.PI/20;
     this.renderer.render( this.scene, this.camera );
   }
