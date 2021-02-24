@@ -1,6 +1,11 @@
 # MagnesieResultFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+## Run with Docker
+
+```sh
+docker build -t magnesie-result-front .
+docker run -p 7883:80 --name magnesie-result-front magnesie-result-front
+```
 
 ## Development server
 
