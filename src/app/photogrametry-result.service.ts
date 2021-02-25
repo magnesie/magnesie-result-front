@@ -11,8 +11,8 @@ import { catchError, map, retry } from 'rxjs/operators';
 })
 export class PhotogrametryResultService {
 
-  resultsEnpoint = "http://localhost/results";
-  fileEnpoint = "http://localhost/files/results/";
+  resultsEnpoint = "http://localhost:7881/results";
+  fileEnpoint = "http://localhost:7881/files/results/";
 
   constructor(private http: HttpClient) { }
 
